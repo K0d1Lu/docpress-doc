@@ -4,10 +4,10 @@ title: Docpress
 heroImage: /images/docpress.png
 actions:
   - text: Get started
-    link: /guides/getting-started.html
+    link: /docpress/en/guides/getting-started.html
     type: primary
   - text: Guides
-    link: /guides/
+    link: /docpress/en/guides/
     type: secondary
 
 features:

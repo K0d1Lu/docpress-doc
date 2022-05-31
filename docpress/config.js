@@ -1,31 +1,44 @@
+const path = require('path');
+
+const { getGuideSidebar } = require(path.join(__dirname, 'utils.js')); // eslint-disable-line
+
 module.exports = {
   locales: {
     '/': {
       title: 'Docpress',
-      description: 'Guides, steps-by-steps, releases notes and much more...',
+      description: 'Outil configurable permettant de récupérer du contenu externe via des sources multiples et de les packager dans une application Vuepress',
     },
-    '/docgen/docs/fr/': {
-      lang: 'fr-FR',
+    '/docpress/en/': {
+      lang: 'en-EN',
       title: 'Docpress',
-      description: 'Guides, pas à pas, releases notes et plus encore...',
+      description: 'Configuration tooling to fetch external content from multiple sources and build it together in a vuepress application.',
     },
   },
 
   themeConfig: {
     locales: {
       '/': {
-        navbar: [
-          { text: 'Guide', link: '/docgen/docs/en/guides/' },
-        ],
-        lastUpdated: 'Last Updated',
-      },
-      '/docgen/docs/fr/': {
         selectLanguageName: 'Français',
         selectLanguageText: 'Langues',
         navbar: [
-          { text: 'Guide', link: '/docgen/docs/fr/guides/' },
+          { text: 'Guides', link: '/docpress/fr/guides/' },
         ],
+        sidebar: {
+          '/docpress/fr/guides/': getGuideSidebar('fr', 'Basics', 'Advanced'),
+        },
         lastUpdated: 'Dernière mise à jour',
+      },
+      '/docpress/en/': {
+        navbar: [
+          { text: 'Guides', link: '/docpress/en/guides/' },
+        ],
+        /**
+         * 
+         */
+        sidebar: {
+          '/docpress/en/guides/': getGuideSidebar('en', 'Basics', 'Advanced'),
+        },
+        lastUpdated: 'Last Updated',
       },
     },
   },
